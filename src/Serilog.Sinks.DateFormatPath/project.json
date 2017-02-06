@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "description": "",
+  "packOptions": {
+    "tags": ["serilog", "io", "file", "logging"]
+  },
+
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Serilog.Sinks.RollingFile": "3.3.0"
+  },
+
+  "frameworks": {
+    "net4.5": {
+      "buildOptions": { "define": [ "HRESULTS" ] }
+    },
+    "netstandard1.3": {
+      "dependencies": {
+        "System.IO": "4.1.0",
+        "System.IO.FileSystem.Primitives": "4.0.1",
+        "System.Runtime.InteropServices": "4.1.0",
+        "System.Text.Encoding.Extensions": "4.0.11"
+      }
+    }
+  }
+}

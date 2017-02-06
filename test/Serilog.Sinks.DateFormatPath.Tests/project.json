@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Moq": "4.6.38-alpha",
+    "NETStandard.Library": "1.6.1",
+    "Serilog.Sinks.DateFormatPath": "1.0.0-*",
+    "xunit": "2.2.0-beta5-build3474"
+  },
+
+  "frameworks": {
+    "net4.5.2": {},
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+
+      },
+      "imports": [
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  }
+}
