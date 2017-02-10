@@ -16,6 +16,11 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Sinks.DateFormatPat
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Sinks.DateFormatPath", "src\Serilog.Sinks.DateFormatPath\Serilog.Sinks.DateFormatPath.xproj", "{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DFPSinkPerfTest", "test\DFPSinkPerfTest\DFPSinkPerfTest.xproj", "{EF490DD4-DE48-45D5-A26B-81EB83C812A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB} = {0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,10 @@ Global
 		{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF490DD4-DE48-45D5-A26B-81EB83C812A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF490DD4-DE48-45D5-A26B-81EB83C812A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF490DD4-DE48-45D5-A26B-81EB83C812A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF490DD4-DE48-45D5-A26B-81EB83C812A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +46,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CE08EB5C-6D39-4082-97DF-D44E1B2AA0A1} = {83179DEE-9525-428E-88A5-F7AA7944BA80}
 		{0BFFFACF-A8DC-4DAF-8CE8-8D664D0863FB} = {5416B74C-1CD9-41CB-B648-360F3838BE63}
+		{EF490DD4-DE48-45D5-A26B-81EB83C812A8} = {83179DEE-9525-428E-88A5-F7AA7944BA80}
 	EndGlobalSection
 EndGlobal

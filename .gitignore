@@ -2,3 +2,7 @@ bin
 obj
 project.lock.json
 /src/serilog-sinks-date-format-path/*.user
+*.user
+*.suo
+/.vs
+/.cr

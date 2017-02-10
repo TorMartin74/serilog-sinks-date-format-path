@@ -4,14 +4,12 @@ using Serilog.Core;
 using Serilog.Events;
 using Serilog.Formatting;
 using Serilog.Sinks.File;
+using System;
 
 namespace Serilog.Sinks.DateFormat
 {
     public class PathToken 
     {
-        string _value;
-        PathTokenType _type;
-
 
         public PathToken( PathTokenType type, string value )
         {
@@ -22,6 +20,14 @@ namespace Serilog.Sinks.DateFormat
         public string Value { get; set; }
         public PathTokenType Type { get; set; }
 
+
+        public void Append( string value )
+        {
+            if( Value == null )
+                Value = value;
+            else
+                Value += value;
+        }
 
         static PathToken _delimiter = new PathToken( PathTokenType.Delimiter, null );
         public static PathToken Delimiter() => _delimiter;

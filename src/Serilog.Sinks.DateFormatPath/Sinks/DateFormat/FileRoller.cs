@@ -16,7 +16,7 @@ namespace Serilog.Sinks.DateFormat
         public FileRoller( string pathFormat )
         {
             var tokenizer = new PathTokenizer();
-            _tokenizedPath = tokenizer.Tokenize( pathFormat ).ToArray();
+            _tokenizedPath = tokenizer.Tokenize( pathFormat ).Compress().ToArray();
 
             _evaluator = new ExpressionEvaluator();
 
@@ -25,7 +25,7 @@ namespace Serilog.Sinks.DateFormat
 
         public string GetLogFilePath()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             foreach( var token in _tokenizedPath )
             {
                 if( token.Type == PathTokenType.Delimiter )

@@ -52,7 +52,7 @@ namespace Serilog.Sinks.DateFormat
             _fileRoller = new FileRoller( _pathFormat );
 
         }
-
+        
 
         /// <summary>
         /// Emit the provided log event to the sink.
@@ -67,9 +67,11 @@ namespace Serilog.Sinks.DateFormat
                 string path = _fileRoller.GetLogFilePath();
                 if( _currentPath == null || (_currentPath != path) )
                 {
-                    _currentFile = new FileSink( path, _formatter, (long?) null, _encoding, _buffered );
+                    _currentFile = new FileSink( path, _formatter, null, _encoding, _buffered );
+                    _currentPath = path;
                 }
 
+                _currentFile.Emit( logEvent );
             }
         }
 
@@ -80,6 +82,10 @@ namespace Serilog.Sinks.DateFormat
         /// <exception cref="System.NotImplementedException"></exception>
         public void FlushToDisk()
         {
+            lock( _syncRoot )
+            {
+                (_currentFile as IFlushableFileSink)?.FlushToDisk();
+            }
         }
 
 

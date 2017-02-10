@@ -107,4 +107,31 @@ namespace Serilog.Sinks.DateFormat
         }
 
     }
+
+    internal static class PathTokenExtensions
+    {
+        public static IEnumerable<PathToken> Compress( this IEnumerable<PathToken> tokens )
+        {
+            PathToken currentToken = null;
+
+            foreach( var pathToken in tokens )
+            {
+                if( pathToken.Type == PathTokenType.Expression )
+                {
+                    yield return currentToken;
+                    yield return pathToken;
+
+                    currentToken = null;
+
+                    continue;
+                }
+
+                if( currentToken == null )
+                    currentToken = new PathToken( PathTokenType.Part, pathToken.Value );
+                else
+                    currentToken.Append( pathToken.Value );
+            }
+        }
+
+    }
 }

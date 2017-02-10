@@ -32,7 +32,6 @@ namespace Serilog.Sinks.DateFormat
 
 
             ExpressionEvaluator evaluator = new ExpressionEvaluator();
-            Clock.SetTimeProvider( () => dt );
 
 
             // Act
