@@ -32,7 +32,7 @@ namespace Serilog.Sinks.DateFormat
 
 
             // Act
-            var result = roller.GetLogFilePath();
+            var result = roller.GetLogFilePath( Clock.DateTimeNow );
 
 
             // Assert

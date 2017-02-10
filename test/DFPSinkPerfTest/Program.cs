@@ -12,7 +12,7 @@ namespace DFPSinkPerfTest
     {
         public static void Main( string[] args )
         {
-            var path = @"e:\logs\{date:format=yyyy}\{date:format=MM}\{date:format=dd}\perftest-{date:format=HH}.log";
+            var path = @"e:\logs\{date:format=yyyy}\{date:format=MM}\{date:format=dd}\perftest-{date:format=HH.mm.ss}.log";
             var log = new LoggerConfiguration()
                 .WriteTo.DateFormatPath( path )
                 .CreateLogger();

@@ -35,7 +35,7 @@ namespace Serilog.Sinks.DateFormat
 
 
             // Act
-            string result = evaluator.Evaluate( expression );
+            string result = evaluator.Evaluate( expression, dt );
 
 
             // Assert

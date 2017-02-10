@@ -15,16 +15,9 @@ namespace Serilog.Sinks.DateFormat
 
         }
 
-        public string Evaluate( string expression )
+        public string Evaluate( string expression, DateTimeOffset now )
         {
-            expression = expression.Trim();
-
-            if( expression.StartsWith( "{" ) )
-                expression = expression.Substring( 1 );
-
-            if( expression.EndsWith( "}" ) )
-                expression = expression.Substring( 0, expression.Length - 1 );
-
+            expression = CleanExpression( expression );
 
             if( expression.StartsWith( "date" ) == false )
                 throw new ArgumentException( "Only date is supported at the moment." );
@@ -33,12 +26,36 @@ namespace Serilog.Sinks.DateFormat
             bool isUtc = FindUtcParameter( expression );
             string culture = FindCulture( expression );
 
-            var now = Clock.DateTimeNow;
             if( isUtc )
                 now = now.ToUniversalTime();
 
             var ci = culture != null ? new CultureInfo( culture ) : null;
             return now.ToString( format, ci );
+        }
+
+        public string GetExpressionFormat( string expression )
+        {
+            expression = CleanExpression( expression );
+
+            var exp = expression.Replace( "\\:", "{@}" );
+            var format = FindFormat( expression ) ?? "";
+
+
+
+            return format.Replace( "{@}", "\\:" );
+        }
+
+
+        private static string CleanExpression( string expression )
+        {
+            expression = expression.Trim();
+
+            if( expression.StartsWith( "{" ) )
+                expression = expression.Substring( 1 );
+
+            if( expression.EndsWith( "}" ) )
+                expression = expression.Substring( 0, expression.Length - 1 );
+            return expression;
         }
 
 

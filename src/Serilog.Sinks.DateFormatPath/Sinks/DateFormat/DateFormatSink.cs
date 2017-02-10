@@ -23,7 +23,6 @@ namespace Serilog.Sinks.DateFormat
         string _currentPath;
 
 
-        bool _isDisposed;
         FileRoller _fileRoller;
 
 
@@ -64,9 +63,12 @@ namespace Serilog.Sinks.DateFormat
 
             lock( _syncRoot )
             {
-                string path = _fileRoller.GetLogFilePath();
+                string path = _fileRoller.GetLogFilePath( logEvent.Timestamp );
                 if( _currentPath == null || (_currentPath != path) )
                 {
+                    FlushToDisk();
+                    CloseFile();
+
                     _currentFile = new FileSink( path, _formatter, null, _encoding, _buffered );
                     _currentPath = path;
                 }
@@ -114,7 +116,6 @@ namespace Serilog.Sinks.DateFormat
             {
                 if( _currentFile == null ) return;
                 CloseFile();
-                _isDisposed = true;
             }
         }
     }
