@@ -1,5 +1,4 @@
-
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Serilog.Sinks.DateFormatPath</id>
@@ -8,9 +7,14 @@
         <owners>Tor Martin Halvorsen</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Serilog sink that writes to a rolling file based on a date formatted path and filename.</description>
-        <tags>Serilog sink file logging<tags>
+        <tags>Serilog sink file logging</tags>
+        <iconUrl>http://serilog.net/images/serilog-sink-nuget.png</iconUrl>
+        <dependencies>
+            <dependency id="Serilog.Sinks.File" version="3.2.0" />
+        </dependencies>
     </metadata>
     <files>
-        <file src=".\Serilog.Sinks.DateFormatPath\bin\%Configuration%\Serilog.Sinks.DateFormatPath.dll"  />
+        <file src="src\Serilog.Sinks.DateFormatPath\bin\$Configuration$\net45\Serilog.Sinks.DateFormatPath.dll" target="lib\net45\Serilog.Sinks.DateFormatPath.dll" />
+        <file src="src\Serilog.Sinks.DateFormatPath\bin\$Configuration$\netstandard1.3\Serilog.Sinks.DateFormatPath.dll" target="lib\netstandard1.3\Serilog.Sinks.DateFormatPath.dll" />
     </files>
 </package>
