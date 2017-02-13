@@ -1,15 +1,16 @@
 {
   "version": "1.0.0-*",
   "description": "Serilog sink that writes to a rolling file based on a date formatted path and filename.",
-  "authors": [ "Tor Martin Halvorsen" ],
-  "owners": [ "Tor Martin Halvorsen" ],
-
+  "authors": [ "TorMartin74" ],
+  
 
   "packOptions": {
+    "summary": "Serilog sink that writes to a rolling file based on a date formatted path and filename.",
+    "owners": [ "TorMartin74" ],
     "tags": [ "Serilog", "sink", "file", "logging" ],
     "projectUrl": "https://github.com/TorMartin74/serilog-sinks-date-format-path",
     "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
-    "iconUrl": "https://github.com/TorMartin74/serilog-sinks-date-format-path",
+    "iconUrl": "http://serilog.net/images/serilog-sink-nuget.png",
     "repository": {
       "type": "git",
       "url": "https://github.com/TorMartin74/serilog-sinks-date-format-path"
