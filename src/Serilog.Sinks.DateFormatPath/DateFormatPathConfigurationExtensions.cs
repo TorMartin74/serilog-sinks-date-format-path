@@ -29,7 +29,7 @@ namespace Serilog
             int? retainedFileCountLimit = DefaultRetainedFileCountLimit,
             LoggingLevelSwitch levelSwitch = null,
             bool buffered = false,
-            bool shared = false,
+            bool shared = true,
             TimeSpan? flushToDiskInterval = null )
         {
             var formatter = new MessageTemplateTextFormatter( outputTemplate, formatProvider );

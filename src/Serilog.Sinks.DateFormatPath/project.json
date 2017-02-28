@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0-*",
+  "version": "1.0.1-*",
   "description": "Serilog sink that writes to a rolling file based on a date formatted path and filename.",
   "authors": [ "TorMartin74" ],
-  
+
 
   "packOptions": {
     "summary": "Serilog sink that writes to a rolling file based on a date formatted path and filename.",
@@ -19,15 +19,19 @@
 
 
   "dependencies": {
-    "NETStandard.Library": "1.6.0",
     "Serilog.Sinks.File": "3.2.0"
   },
 
   "frameworks": {
-    "net4.5": {
-      "buildOptions": { "define": [ "HRESULTS" ] }
+    "net45": {
+      "frameworkAssemblies": {
+      }
     },
-    "netstandard1.3": {
+    "net451": {
+      "frameworkAssemblies": {
+      }
+    },
+    "netstandard1.6": {
       "dependencies": {
         "System.IO": "4.1.0",
         "System.IO.FileSystem.Primitives": "4.0.1",
